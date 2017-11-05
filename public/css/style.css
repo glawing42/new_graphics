@@ -1,0 +1,249 @@
+/* Space out content a bit */
+body {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+  
+  /* Everything but the jumbotron gets side spacing for mobile first views */
+  .header,
+  .marketing,
+  .footer {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  
+  /* Custom page header */
+  .header {
+    padding-bottom: 1rem;
+    border-bottom: .05rem solid #cccccc;
+  }
+  .page-header{
+      color: white;
+      font-family: ABeeZee;
+  }
+  
+  /* Make the masthead heading the same height as the navigation */
+  .header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 3rem;
+  }
+  
+  /* Custom page footer */
+  .footer {
+    padding-top: 1.5rem;
+    color: #777;
+    border-top: .05rem solid #e5e5e5;
+  }
+  
+  /* Customize container */
+  @media (min-width: 48em) {
+    .container {
+      max-width: 46rem;
+    }
+  }
+  .container-narrow > hr {
+    margin: 2rem 0;
+  }
+  
+  /* Main marketing message and sign up button */
+  .jumbotron {
+    text-align: center;
+    border-bottom: .05rem solid #e5e5e5;
+  }
+  .jumbotron .btn {
+    padding: .75rem 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  /* Supporting marketing content */
+  .marketing {
+    margin: 3rem 0;
+  }
+  .marketing p + h4 {
+    margin-top: 1.5rem;
+  }
+  
+  /* Responsive: Portrait tablets and up */
+  @media screen and (min-width: 48em) {
+    /* Remove the padding we set earlier */
+    .header,
+    .marketing,
+    .footer {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  
+    /* Space out the masthead */
+    .header {
+      margin-bottom: 2rem;
+    }
+  
+    /* Remove the bottom border on the jumbotron for visual effect */
+    .jumbotron {
+      border-bottom: 0;
+    }
+  }
+
+  .page-header{
+    margin-top:0;
+  }
+
+  footer{
+    margin-top: 40px;
+  }
+
+  * {
+    box-sizing: border-box;
+}
+
+body {
+    background: #013464;
+    color: #485e74;
+    line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    padding: 1em;
+}
+
+.container {
+    max-width: 1170px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1em;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+.brand {
+    text-align: center;
+
+}
+
+.brand span {
+    color: rgb(0, 0, 0);
+}
+
+.wrapper {
+    box-shadow: 0 0 20px 0 rgba(72, 94, 116, 0.7);
+}
+
+.wrapper>* {
+    padding: 1em;
+}
+
+.company-info {
+    background: #c9e6ff;
+}
+.upload-info {
+    background: #f9feff;
+}
+
+.company-info h3,
+.company-info ul {
+    text-align: center;
+    margin: 0 0 1rem 0;
+}
+.upload {
+    background: #f9feff;
+}
+.upload form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.contact {
+    background: #f9feff;
+}
+
+.contact form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.contact form label {
+    display: block;
+}
+
+
+.contact form p {
+    margin: 0;
+}
+
+.contact form .full {
+    grid-column: 1/3;
+}
+
+.contact form button, .contact form input, .contact form textarea{
+    width:100%;
+    padding: 1em;
+    border: 1px solid #c9e6ff;
+}
+
+.contact form button {
+    background: #c9e6ff;
+    border: 0;
+    text-transform: uppercase;
+}
+
+.contact form button:hover, .contact form button:focus{
+    background: #013464;
+    color: #fff;
+    outline: 0;
+    transition: background-color 2s ease-out;
+}
+
+.form-group label{
+    margin-left: 90px;
+}
+
+.form-group input{
+    margin-left: 90px;
+}
+.login{
+    margin-left: 400px;
+    width: 400px;
+    height: 550px;
+}
+
+.register{
+    margin-left: 300px;
+    width: 600px;
+    height: 550px;
+}
+
+.register form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+
+
+/* .register input{
+ margin-left: 150px;
+}
+.register label{
+    margin-left: 150px;
+   } */
+
+/* Large Screens */
+
+@media(min-width:700px){
+    .wrapper{
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .wrapper > *{
+        padding: 2em;
+    }
+    
+    .company-info h3, .company-info ul, .brand{
+        text-align: left;
+    }
+}

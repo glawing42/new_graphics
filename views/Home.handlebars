@@ -1,0 +1,157 @@
+<div class="container" action="/contact">
+    <h1 class="brand">
+        <span>M2</span> Graphics</h1>
+    <div class="wrapper animated bounceInDown">
+        <div class="upload-info">
+            <h1>Upload Your Image</h1>
+        </div>
+        <div class="upload">
+            <form method="POST" action="send">
+                <input type="file" id="files" name="files[]" multiple />
+                <input type="button" id="camera" value="Camera" />
+                <input type="button" id="snapshot" disabled="true" value="Take Snap shot" />
+                <div id="list"></div>
+                <video id="video" autoplay></video>
+                <canvas width="300" height="200" id="canvas"></canvas>
+            </form>
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<style>
+    /* Add at later date */
+
+    #list img.thumb {
+        width: 40%;
+        height: 40%;
+        display: inline-block;
+    }
+
+
+    #canvas {}
+</style>
+
+<script>
+    var d = document,
+        dropZone = d.getElementById('dropZone'),
+        canvas = d.getElementById('canvas'),
+        context = canvas.getContext('2d'),
+        video = d.getElementById('video'),
+        camera = d.getElementById('camera'),
+        snapshot = d.getElementById('snapshot'),
+        file = d.getElementById('files');
+    file.addEventListener('change', handleFile, false);
+    camera.addEventListener('click', usecamera, false);
+    snapshot.addEventListener('click', takesnapshot, false);
+
+    function handleFile(evt) {
+        var files;
+        if (evt.dataTransfer) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            files = evt.dataTransfer.files;
+        }
+        else {
+            files = evt.target.files; // FileList object
+        }
+        // Loop through the FileList and render image files as thumbnails.
+        for (var i = 0, f; f = files[i]; i++) {
+            // Only process image files.
+            if (!f.type.match('image.*')) {
+                continue;
+            }
+            var reader = new FileReader();
+            // Closure to capture the file information.
+            reader.onload = (function (theFile) {
+                return function (e) {
+                    // Render thumbnail.
+                    var img = d.createElement('img');
+                    img.className = 'thumb';
+                    img.src = e.target.result;
+                    img.title = escape(theFile.name);
+                    img.addEventListener('click', thumbSelected, false);
+                    d.getElementById('list').insertBefore(img, null);
+                };
+            })(f);
+            reader.readAsDataURL(f);
+        }
+    }
+    function handleDragOver(evt) {
+        evt.stopPropagation();
+        evt.preventDefault();
+        evt.dataTransfer.dropEffect = 'copy';
+    }
+
+    function thumbSelected() {
+        var thumb = event.target;
+        /*same quality*/
+        canvas.height = thumb.naturalHeight;
+        canvas.width = thumb.naturalWidth;
+        context.drawImage(thumb, 0, 0);
+    }
+    function usecamera() {
+        navigator.getMedia = (navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia);
+
+        navigator.getMedia(
+
+            // constraints
+            {
+                video: true,
+                audio: false
+            },
+
+            // successCallback
+            function (localMediaStream) {
+                //canvas.style.display
+                video.src = window.URL.createObjectURL(localMediaStream);
+                snapshot.disabled = false;
+                video.onloadedmetadata = function (e) {
+                    console.log(e)
+                    // Do something with the video here.
+
+                };
+            },
+
+            // errorCallback
+            function (err) {
+                console.log(err);
+            }
+
+        );
+    }
+    function takesnapshot() {
+        video.style.display = 'none';
+        snapshot.disabled = true;
+        canvas.height = video.videoHeight;
+        canvas.width = video.videoWidth;
+        context.drawImage(video, 0, 0);
+        var src = canvas.toDataURL("image/png");
+
+        var img = d.createElement('img');
+        img.className = 'thumb';
+        img.src = src;
+        img.addEventListener('click', thumbSelected, false);
+        d.getElementById('list').insertBefore(img, null);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
