@@ -98,6 +98,9 @@ app.use(function (req, res, next) {
   app.get('/contact', (req, res) => {
     res.render('contact');
 });
+app.get('/custom', (req, res) => {
+    res.render('custom');
+});
 
 app.post('/send',(req, res) => {
   
