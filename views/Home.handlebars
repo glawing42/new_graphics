@@ -35,10 +35,16 @@
 
 <script>
     var d = document,
+
         canvas = d.getElementById('canvas'),
         context = canvas.getContext('2d'),
+        video = d.getElementById('video'),
+        camera = d.getElementById('camera'),
+        snapshot = d.getElementById('snapshot'),
         file = d.getElementById('files');
     file.addEventListener('change', handleFile, false);
+    camera.addEventListener('click', usecamera, false);
+    snapshot.addEventListener('click', takesnapshot, false);
 
     function handleFile(evt) {
         var files;
@@ -85,6 +91,64 @@
         canvas.width = thumb.naturalWidth;
         context.drawImage(thumb, 0, 0);
     }
+    function usecamera() {
+        navigator.getMedia = (navigator.getUserMedia ||
+            navigator.webkitGetUserMedia ||
+            navigator.mozGetUserMedia ||
+            navigator.msGetUserMedia);
+
+        navigator.getMedia(
+
+            // constraints
+            {
+                video: true,
+                audio: false
+            },
+
+            // successCallback
+            function (localMediaStream) {
+                //canvas.style.display
+                video.src = window.URL.createObjectURL(localMediaStream);
+                snapshot.disabled = false;
+                video.onloadedmetadata = function (e) {
+                    console.log(e)
+                    // Do something with the video here.
+
+                };
+            },
+
+            // errorCallback
+            function (err) {
+                console.log(err);
+            }
+
+        );
+    }
+    function takesnapshot() {
+        video.style.display = 'none';
+        snapshot.disabled = true;
+        canvas.height = video.videoHeight;
+        canvas.width = video.videoWidth;
+        context.drawImage(video, 0, 0);
+        var src = canvas.toDataURL("image/png");
+
+        var img = d.createElement('img');
+        img.className = 'thumb';
+        img.src = src;
+        img.addEventListener('click', thumbSelected, false);
+        d.getElementById('list').insertBefore(img, null);
+
+    }
+
+
+
+
+
+
+
+
+
+
 
 
 </script>
