@@ -45,6 +45,10 @@ body {
   .container-narrow > hr {
     margin: 2rem 0;
   }
+
+  .col-lg-9{
+      background: url("../public/img/logo.jpg")
+  }
   
   /* Main marketing message and sign up button */
   .jumbotron {

@@ -101,6 +101,9 @@ app.use(function (req, res, next) {
 app.get('/custom', (req, res) => {
     res.render('custom');
 });
+app.get('/gallery', (req, res) => {
+    res.render('gallery');
+});
 
 app.post('/send',(req, res) => {
   
