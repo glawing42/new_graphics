@@ -1,39 +1,90 @@
 <div class="row">
+
     <div class="col-lg-12">
         <div class="jumbotron" style="height: 350px;">
-            <h1>Welcome to M2 Graphics</h1>
-            <br>
-            <p>Wraps • Decals • Custom Design
-            </p>
-            <br>
 
-            <a class="btn btn-xl btn-primary" href="/custom">Custom Desgins</a>
-
+            <div class="bg">
+            </div>
+            <div class="custom-button">
+                <a class="btn btn-xl btn" href="/custom" style="color:black; background-color:#2da9e0;"><strong>Custom Designs</strong></a>
+            </div>
         </div>
     </div>
-
-
-    <div class="col-lg-12">
-
-    </div>
+</div>
 
 
 
-    <div class="col-lg-12">
-        <h4 class="h3 margin-bottom margin-top text-center" style="color:black">
-            <strong>@m2_graphics</strong>
-            <a href="https://www.instagram.com/m2_graphics/" target="_blank" rel="nofollow" class="btn btn-grey btn-sm">
-                184k
-            </a>
-        </h4>
-            
-    </div>
 
 
-    <div class="col-lg-12" style="margin-top:30%;">
-        <div class="jumbotron">
-            <h1>Browse Our Gallery</h1>
-            <a class="btn btn-xl btn-primary" href="/gallery">Gallery</a>
 
+
+<div class="col-lg-12">
+    <h4 class="h3 margin-bottom margin-top text-center" style="color:#737373">
+        <strong>@m2_graphics</strong>
+        <a href="https://www.instagram.com/m2_graphics/" target="_blank" rel="nofollow" class="btn btn-grey btn-sm">
+            <i class="fa fa-3x fa-instagram" aria-hidden="true" style="color:#737373;"></i>
+        </a>
+        <a href="https://www.facebook.com/m2graphicsllc/" target="_blank" rel="nofollow" class="btn btn-grey btn-sm">
+            <i class="fa fa-3x fa-facebook" aria-hidden="true" style="color:#737373;"></i>
+        </a>
+    </h4>
+
+</div>
+
+
+<div id="carousel">
+  <figure id="spinner">
+    <img src="/img/wraps.jpg" alt>
+    <img src="/img/custom.jpg" alt>
+    <img src="/img/decals.jpg" alt>
+    <img src="/img/logo.jpg" alt>
+    <img src="/img/tony.jpg" alt>
+    <img src="/img/go_ryan.jpg" alt>
+    <img src="/img/dale.jpg" alt>
+    <img src="/img/decals_2.jpg" alt>
+  </figure>
+</div>
+<span style="float:left" class="ss-icon" onclick="galleryspin('-')">&lt;</span>
+<span style="float:right" class="ss-icon" onclick="galleryspin('')">&gt;</span>
+
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">
+    <br>
+    <div class="row">
+        <div class="col-sm-4">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.</p>
+            <div class="img-one" alt="Image"></div>
+        </div>
+        <div class="col-sm-4">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.</p>
+            <div class="img-one" alt="Image"></div>
+        </div>
+        <div class="col-sm-4">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
+                magna aliqua.</p>
+            <div class="img-one" alt="Image"></div>
         </div>
     </div>
+</div>
+
+
+<div class="col-lg-12" style="margin-top:30%;">
+    <div class="jumbotron">
+        <h1>Browse Our Gallery</h1>
+        <a class="btn btn-xl btn-primary" href="/gallery">Gallery</a>
+
+    </div>
+</div>
+
+<script>
+
+ var angle = 0;
+function galleryspin(sign) { 
+spinner = document.querySelector("#spinner");
+if (!sign) { angle = angle + 45; } else { angle = angle - 45; }
+spinner.setAttribute("style","-webkit-transform: rotateY("+ angle +"deg); -moz-transform: rotateY("+ angle +"deg); transform: rotateY("+ angle +"deg);");
+}
+</script>
