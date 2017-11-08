@@ -11,7 +11,7 @@ body {
   /* Carousel */
   div#carousel { 
     perspective: 1200px; 
-    background: #100000; 
+    background: #090a0a; 
     padding-top: 10%; 
     font-size:0; 
     margin-bottom: 3rem; 
